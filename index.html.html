@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lion Group | Asset Management & Real Estate — London · Dubai · Lahore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14161A;
+    --ink-2:#1D2027;
+    --cream:#F6F3EC;
+    --paper:#FBFAF7;
+    --gold:#B4884B;
+    --gold-light:#D9B77C;
+    --emerald:#1F4B3F;
+    --text:#1B1B18;
+    --muted:#6E6C63;
+    --line:rgba(20,22,26,0.12);
+    --line-light:rgba(246,243,236,0.16);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Manrope', sans-serif;
+    color:var(--text);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%; height:auto;}
+  ul{list-style:none;}
+  .wrap{max-width:1240px; margin:0 auto; padding:0 32px;}
+  section{position:relative;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:15px 28px;
+    font-size:14.5px; font-weight:600;
+    border-radius:2px;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+  }
+  .btn-gold{background:var(--gold); color:var(--ink);}
+  .btn-gold:hover{background:var(--gold-light); transform:translateY(-1px);}
+  .btn-line{border-color:var(--line-light); color:var(--cream);}
+  .btn-line:hover{border-color:var(--gold-light); color:var(--gold-light);}
+  .btn-dark{border-color:var(--line); color:var(--ink);}
+  .btn-dark:hover{border-color:var(--gold); color:var(--gold);}
+  .eyebrow{
+    font-size:13px; color:var(--gold); font-weight:700; letter-spacing:.02em;
+  }
+  .kicker-row{display:flex; align-items:center; gap:14px; margin-bottom:18px;}
+  .kicker-row .rule{width:36px; height:1px; background:var(--gold);}
+
+  /* ---------- TOP UTILITY BAR ---------- */
+  .topbar{
+    background:var(--ink); color:var(--cream); font-size:13px;
+    border-bottom:1px solid var(--line-light);
+  }
+  .topbar .wrap{display:flex; justify-content:space-between; align-items:center; height:40px; padding-top:0; padding-bottom:0;}
+  .topbar-left{display:flex; gap:22px; opacity:.85;}
+  .topbar-right{display:flex; gap:18px; opacity:.85;}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    background:var(--ink); position:sticky; top:0; z-index:50;
+    border-bottom:1px solid var(--line-light);
+  }
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; height:84px;}
+  .logo{display:flex; align-items:center; gap:12px;}
+  .logo svg{flex-shrink:0;}
+  .logo-text{color:var(--cream); font-family:'Fraunces', serif; font-size:22px; letter-spacing:.02em;}
+  .logo-text span{color:var(--gold);}
+  .logo-sub{display:block; font-family:'Manrope',sans-serif; font-size:10px; letter-spacing:.14em; color:var(--muted); margin-top:2px;}
+  nav.links{display:flex; gap:36px;}
+  nav.links a{color:var(--cream); font-size:14.5px; font-weight:500; opacity:.88; transition:opacity .2s, color .2s; position:relative;}
+  nav.links a:hover{opacity:1; color:var(--gold-light);}
+  .nav-cta{display:flex; align-items:center; gap:22px;}
+  .nav-phone{color:var(--cream); font-size:14px; font-weight:600; display:flex; align-items:center; gap:8px;}
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none;}
+  .burger span{width:24px; height:2px; background:var(--cream);}
+
+  /* ---------- HERO ---------- */
+  .hero{background:var(--ink); overflow:hidden;}
+  .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; min-height:640px;}
+  .hero-text{padding:88px 56px 72px 32px; display:flex; flex-direction:column; justify-content:center; max-width:620px;}
+  .hero-text h1{color:var(--cream); font-size:clamp(38px,4.6vw,60px); margin-bottom:22px;}
+  .hero-text h1 em{font-style:italic; color:var(--gold-light);}
+  .hero-text p{color:rgba(246,243,236,.72); font-size:17px; max-width:520px; margin-bottom:36px;}
+  .hero-actions{display:flex; gap:16px; margin-bottom:56px; flex-wrap:wrap;}
+  .hero-stats{display:flex; gap:0; border-top:1px solid var(--line-light); padding-top:28px;}
+  .hero-stats div{padding-right:36px; margin-right:36px; border-right:1px solid var(--line-light);}
+  .hero-stats div:last-child{border-right:none; margin-right:0;}
+  .hero-stats strong{display:block; font-family:'Fraunces',serif; font-size:28px; color:var(--gold-light); font-weight:500;}
+  .hero-stats span{font-size:12.5px; color:rgba(246,243,236,.6); letter-spacing:.02em;}
+  .hero-image{position:relative; overflow:hidden;}
+  .hero-image img{width:100%; height:100%; object-fit:cover; position:absolute; inset:0; animation:kb 22s ease-in-out infinite alternate;}
+  .hero-image::after{content:""; position:absolute; inset:0; background:linear-gradient(90deg, var(--ink) 0%, transparent 18%);}
+  .hero-badge{
+    position:absolute; left:32px; bottom:32px; z-index:2;
+    background:rgba(20,22,26,.82); backdrop-filter:blur(4px);
+    border:1px solid var(--line-light); padding:16px 20px; max-width:230px;
+  }
+  .hero-badge p{color:var(--cream); font-size:13px; line-height:1.5;}
+  .hero-badge strong{color:var(--gold-light); display:block; font-family:'Fraunces',serif; font-size:15px; margin-bottom:4px;}
+  @keyframes kb{from{transform:scale(1) translate(0,0);} to{transform:scale(1.12) translate(-1.5%,-1.5%);}}
+
+  /* ---------- SECTION HEADS ---------- */
+  .section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:40px; margin-bottom:52px; flex-wrap:wrap;}
+  .section-head h2{font-size:clamp(30px,3.4vw,42px); max-width:560px;}
+  .section-head p.lead{color:var(--muted); font-size:15.5px; max-width:380px;}
+
+  /* ---------- VIDEO SECTION ---------- */
+  .video-section{background:var(--emerald); padding:110px 0;}
+  .video-section .section-head h2, .video-section .eyebrow{color:var(--cream);}
+  .video-section .section-head p.lead{color:rgba(246,243,236,.7);}
+  .video-player{
+    position:relative; border-radius:2px; overflow:hidden; aspect-ratio:16/7.2;
+    box-shadow:0 30px 70px -20px rgba(0,0,0,.55);
+  }
+  .video-player .slide{position:absolute; inset:0; opacity:0; transition:opacity 1.4s ease;}
+  .video-player .slide.active{opacity:1;}
+  .video-player .slide img{width:100%; height:100%; object-fit:cover;}
+  .video-player .slide.active img{animation:kb 9s ease-out forwards;}
+  .video-scrim{position:absolute; inset:0; background:linear-gradient(180deg, rgba(20,22,26,.15) 0%, rgba(20,22,26,.75) 100%);}
+  .video-controls{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:22px;}
+  .play-btn{
+    width:82px; height:82px; border-radius:50%;
+    background:rgba(246,243,236,.14); border:1px solid rgba(246,243,236,.5);
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+    transition:background .25s, transform .25s;
+  }
+  .play-btn:hover{background:var(--gold); transform:scale(1.06);}
+  .play-btn svg{margin-left:4px;}
+  .video-caption{color:var(--cream); text-align:center;}
+  .video-caption strong{display:block; font-family:'Fraunces',serif; font-size:20px; margin-bottom:4px;}
+  .video-caption span{font-size:13px; color:rgba(246,243,236,.65);}
+  .video-progress{position:absolute; left:0; right:0; bottom:0; height:3px; background:rgba(246,243,236,.18);}
+  .video-progress-bar{height:100%; width:0%; background:var(--gold-light);}
+  .video-progress-bar.running{animation:prog 9s linear infinite;}
+  @keyframes prog{from{width:0%;} to{width:100%;}}
+  .video-tags{display:flex; gap:10px; margin-top:26px; flex-wrap:wrap; justify-content:center;}
+  .video-tags span{border:1px solid rgba(246,243,236,.3); color:rgba(246,243,236,.85); font-size:12.5px; padding:6px 14px; border-radius:20px;}
+
+  /* ---------- PROPERTY CARDS ---------- */
+  .cards-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  .p-card{background:var(--paper); border:1px solid var(--line); transition:transform .3s ease, box-shadow .3s ease;}
+  .p-card:hover{transform:translateY(-5px); box-shadow:0 24px 40px -24px rgba(20,22,26,.28);}
+  .p-card-img{position:relative; aspect-ratio:4/3.1; overflow:hidden;}
+  .p-card-img img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
+  .p-card:hover .p-card-img img{transform:scale(1.06);}
+  .p-tag{position:absolute; top:14px; left:14px; background:var(--ink); color:var(--gold-light); font-size:11.5px; font-weight:700; padding:6px 12px;}
+  .p-price{position:absolute; bottom:14px; left:14px; background:var(--paper); color:var(--ink); font-family:'Fraunces',serif; font-size:17px; padding:6px 14px;}
+  .p-body{padding:22px 22px 24px;}
+  .p-loc{font-size:12.5px; color:var(--muted); margin-bottom:6px;}
+  .p-body h3{font-size:19px; margin-bottom:12px;}
+  .p-specs{display:flex; gap:16px; font-size:12.5px; color:var(--muted); border-top:1px solid var(--line); padding-top:14px;}
+  .p-specs b{color:var(--text); font-weight:700;}
+
+  /* ---------- UK SECTION ---------- */
+  .uk-section{padding:110px 0; background:var(--paper);}
+  .uk-why{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:60px; border-top:1px solid var(--line); padding-top:44px;}
+  .uk-why-item h4{font-size:16.5px; margin-bottom:8px;}
+  .uk-why-item p{font-size:14px; color:var(--muted);}
+  .uk-why-item .num{font-family:'Fraunces',serif; color:var(--gold); font-size:14px; margin-bottom:10px; display:block;}
+
+  /* ---------- PAKISTAN SECTION (heavy) ---------- */
+  .pk-section{padding:110px 0 120px; background:var(--cream);}
+  .pk-feature-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:26px; margin-bottom:64px;}
+  .pk-feature{background:var(--paper); border:1px solid var(--line); display:grid; grid-template-columns:1fr 1.1fr;}
+  .pk-feature-img{position:relative; overflow:hidden;}
+  .pk-feature-img img{width:100%; height:100%; object-fit:cover; min-height:260px; transition:transform .5s ease;}
+  .pk-feature:hover .pk-feature-img img{transform:scale(1.06);}
+  .pk-feature-body{padding:28px 26px; display:flex; flex-direction:column; justify-content:center;}
+  .pk-partner{font-size:11.5px; color:var(--gold); font-weight:700; margin-bottom:10px; letter-spacing:.02em;}
+  .pk-feature-body h3{font-size:21px; margin-bottom:10px;}
+  .pk-feature-body p{font-size:13.8px; color:var(--muted); margin-bottom:16px;}
+  .pk-feature-body a{font-size:13px; font-weight:700; color:var(--emerald); display:inline-flex; align-items:center; gap:6px;}
+
+  .pk-tile-head{display:flex; justify-content:space-between; align-items:center; margin-bottom:26px; flex-wrap:wrap; gap:12px;}
+  .pk-tile-head h3{font-size:22px;}
+  .pk-tile-head span{font-size:13.5px; color:var(--muted);}
+  .pk-tiles{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  .pk-tile{
+    background:var(--paper); border:1px solid var(--line); padding:20px 18px;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .pk-tile:hover{border-color:var(--gold); transform:translateY(-3px);}
+  .pk-tile .city{font-size:11px; color:var(--gold); font-weight:700; margin-bottom:8px;}
+  .pk-tile h5{font-family:'Fraunces',serif; font-weight:500; font-size:15.5px; color:var(--ink); line-height:1.3;}
+
+  /* ---------- STATS BAND ---------- */
+  .stats-band{background:var(--ink); padding:76px 0;}
+  .stats-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px;}
+  .stat-item{border-left:1px solid var(--line-light); padding-left:24px;}
+  .stat-item strong{display:block; font-family:'Fraunces',serif; font-size:clamp(30px,3vw,42px); color:var(--gold-light); font-weight:500;}
+  .stat-item span{color:rgba(246,243,236,.65); font-size:13.5px;}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testi-section{padding:110px 0; background:var(--paper);}
+  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  .testi-card{border:1px solid var(--line); padding:32px 28px; background:var(--cream);}
+  .testi-card p{font-size:15px; color:var(--text); margin-bottom:22px; font-family:'Fraunces',serif; font-weight:400; font-size:17px; line-height:1.5;}
+  .testi-person{display:flex; align-items:center; gap:12px;}
+  .testi-avatar{width:40px; height:40px; border-radius:50%; background:var(--emerald); color:var(--cream); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:15px;}
+  .testi-person div strong{display:block; font-size:14px;}
+  .testi-person div span{font-size:12.5px; color:var(--muted);}
+
+  /* ---------- CONTACT / CTA ---------- */
+  .cta-section{background:var(--emerald); padding:100px 0; text-align:center;}
+  .cta-section h2{color:var(--cream); font-size:clamp(30px,4vw,46px); max-width:680px; margin:0 auto 20px;}
+  .cta-section p{color:rgba(246,243,236,.75); max-width:520px; margin:0 auto 36px; font-size:16px;}
+  .cta-buttons{display:flex; justify-content:center; gap:16px; flex-wrap:wrap;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink); padding:70px 0 30px; color:rgba(246,243,236,.7);}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; padding-bottom:50px; border-bottom:1px solid var(--line-light);}
+  .footer-grid h5{color:var(--cream); font-family:'Fraunces',serif; font-weight:500; font-size:16px; margin-bottom:18px;}
+  .footer-grid ul li{margin-bottom:10px; font-size:14px;}
+  .footer-grid ul li a:hover{color:var(--gold-light);}
+  .footer-about p{font-size:14px; max-width:280px; margin-bottom:18px;}
+  .footer-social{display:flex; gap:12px;}
+  .footer-social a{width:34px; height:34px; border:1px solid var(--line-light); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px;}
+  .footer-social a:hover{border-color:var(--gold); color:var(--gold-light);}
+  .footer-bottom{display:flex; justify-content:space-between; padding-top:26px; font-size:12.5px; flex-wrap:wrap; gap:10px;}
+
+  /* ---------- WHATSAPP FAB ---------- */
+  .wa-fab{
+    position:fixed; right:24px; bottom:24px; z-index:60;
+    width:56px; height:56px; border-radius:50%; background:#25D366;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 24px -8px rgba(0,0,0,.4);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-image{min-height:340px;}
+    .hero-text{padding:64px 24px 48px;}
+    nav.links, .nav-phone{display:none;}
+    .burger{display:flex;}
+    .cards-grid{grid-template-columns:repeat(2,1fr);}
+    .pk-feature{grid-template-columns:1fr;}
+    .pk-tiles{grid-template-columns:repeat(2,1fr);}
+    .stats-grid{grid-template-columns:repeat(2,1fr); row-gap:34px;}
+    .footer-grid{grid-template-columns:1fr 1fr; row-gap:34px;}
+    .uk-why{grid-template-columns:1fr;}
+    .testi-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:600px){
+    .cards-grid{grid-template-columns:1fr;}
+    .pk-tiles{grid-template-columns:1fr 1fr;}
+    .hero-stats{flex-wrap:wrap; gap:20px;}
+    .hero-stats div{padding-right:0; margin-right:0; border-right:none; width:45%;}
+    .footer-grid{grid-template-columns:1fr;}
+    .pk-feature-grid{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero-image img, .video-player .slide.active img{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="topbar-left">
+      <span>113-B, Broadway, DHA Phase 8, Lahore</span>
+      <span>info@lionhdb.com</span>
+    </div>
+    <div class="topbar-right">
+      <span>London</span><span>Dubai</span><span>Lahore</span>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#home" class="logo">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+        <circle cx="17" cy="17" r="16" stroke="#B4884B" stroke-width="1.4"/>
+        <path d="M17 8c3 2 3 5 1.4 6.6 2.6.4 4.6 2.6 4.6 5.4 0 3.6-3 6-6 6s-6-2.4-6-6c0-2.8 2-5 4.6-5.4C13.2 13 12.8 10 17 8z" fill="#B4884B"/>
+      </svg>
+      <span>
+        <span class="logo-text">LION <span>GROUP</span></span>
+        <span class="logo-sub">ASSET MANAGEMENT · REAL ESTATE</span>
+      </span>
+    </a>
+    <nav class="links">
+      <a href="#home">Home</a>
+      <a href="#video">Portfolio Film</a>
+      <a href="#uk">UK Portfolio</a>
+      <a href="#pk">Pakistan Projects</a>
+      <a href="#why">Why Lion Group</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <span class="nav-phone">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D9B77C" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+        +92 311 122 2977
+      </span>
+      <a href="#contact" class="btn btn-gold">Book a Consultation</a>
+      <button class="burger" onclick="document.querySelector('nav.links').classList.toggle('open')"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <div class="kicker-row"><span class="rule"></span><span class="eyebrow">Since 2005 · London · Dubai · Lahore</span></div>
+      <h1>Bringing <em>London&nbsp;standards</em> to Pakistan's most trusted addresses</h1>
+      <p>Lion Group is a Platinum & Strategic Sales Partner for Pakistan's landmark developments — Etihad Town, DHA, and the Smart City network — built on nearly two decades of cross-border property expertise for local and overseas Pakistani investors.</p>
+      <div class="hero-actions">
+        <a href="#pk" class="btn btn-gold">Explore Pakistan Projects</a>
+        <a href="#uk" class="btn btn-line">View UK Portfolio</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>17+</strong><span>Years in real estate</span></div>
+        <div><strong>20+</strong><span>Landmark developments</span></div>
+        <div><strong>3</strong><span>Global offices</span></div>
+        <div><strong>68K+</strong><span>Community of investors</span></div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80" alt="Modern residential development">
+      <div class="hero-badge">
+        <strong>Etihad Town Lahore</strong>
+        <p>Exclusive Sales Partner — luxury plots with flexible payment plans now open.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="video-section" id="video">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="kicker-row"><span class="rule"></span><span class="eyebrow">Portfolio film</span></div>
+        <h2>Step inside our UK residences</h2>
+      </div>
+      <p class="lead">A short walkthrough of the London addresses we curate for our overseas clients — from riverside apartments to freehold townhouses.</p>
+    </div>
+
+    <div class="video-player" id="videoPlayer">
+      <div class="slide active"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=80" alt="London apartment interior"></div>
+      <div class="slide"><img src="https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?auto=format&fit=crop&w=1600&q=80" alt="London townhouses"></div>
+      <div class="slide"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1600&q=80" alt="London skyline at dusk"></div>
+      <div class="video-scrim"></div>
+      <div class="video-controls">
+        <div class="play-btn" id="playBtn" onclick="toggleVideo()">
+          <svg id="playIcon" width="24" height="24" viewBox="0 0 24 24" fill="#F6F3EC"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="video-caption">
+          <strong>Lion Group — UK Portfolio Walkthrough</strong>
+          <span>2:14 · Filmed on location, London</span>
+        </div>
+      </div>
+      <div class="video-progress"><div class="video-progress-bar" id="progressBar"></div></div>
+    </div>
+    <div class="video-tags">
+      <span>Canary Wharf</span><span>Manchester City Centre</span><span>Birmingham Buy-to-Let</span><span>Freehold Townhouses</span>
+    </div>
+  </div>
+</section>
+
+<!-- UK PROPERTIES -->
+<section class="uk-section" id="uk">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="kicker-row"><span class="rule"></span><span class="eyebrow">UK portfolio</span></div>
+        <h2>Curated London & UK residences</h2>
+      </div>
+      <p class="lead">Hand-picked for overseas Pakistanis seeking rental yield, capital growth, and a foothold in the UK market.</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="p-card">
+        <div class="p-card-img">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80" alt="Canary Wharf apartment">
+          <span class="p-tag">For Sale</span>
+          <span class="p-price">£425,000</span>
+        </div>
+        <div class="p-body">
+          <div class="p-loc">Canary Wharf, London</div>
+          <h3>Riverside Two-Bed Apartment</h3>
+          <div class="p-specs"><span><b>2</b> Beds</span><span><b>2</b> Baths</span><span><b>840</b> sq ft</span></div>
+        </div>
+      </div>
+      <div class="p-card">
+        <div class="p-card-img">
+          <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80" alt="Manchester city apartment">
+          <span class="p-tag">For Sale</span>
+          <span class="p-price">£210,000</span>
+        </div>
+        <div class="p-body">
+          <div class="p-loc">City Centre, Manchester</div>
+          <h3>High-Yield Buy-to-Let Studio</h3>
+          <div class="p-specs"><span><b>1</b> Bed</span><span><b>1</b> Bath</span><span><b>430</b> sq ft</span></div>
+        </div>
+      </div>
+      <div class="p-card">
+        <div class="p-card-img">
+          <img src="https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?auto=format&fit=crop&w=800&q=80" alt="London townhouse">
+          <span class="p-tag">For Sale</span>
+          <span class="p-price">£680,000</span>
+        </div>
+        <div class="p-body">
+          <div class="p-loc">Birmingham</div>
+          <h3>Freehold Family Townhouse</h3>
+          <div class="p-specs"><span><b>4</b> Beds</span><span><b>3</b> Baths</span><span><b>1,650</b> sq ft</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="uk-why">
+      <div class="uk-why-item">
+        <span class="num">01</span>
+        <h4>Full legal & remittance support</h4>
+        <p>End-to-end guidance for overseas Pakistanis, from currency transfer to UK conveyancing.</p>
+      </div>
+      <div class="uk-why-item">
+        <span class="num">02</span>
+        <h4>Managed rental returns</h4>
+        <p>Tenanted properties with letting management, so your investment earns from day one.</p>
+      </div>
+      <div class="uk-why-item">
+        <span class="num">03</span>
+        <h4>A single point of contact</h4>
+        <p>One Lion Group advisor coordinates your file across Lahore, Dubai, and London.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAKISTAN PROJECTS -->
+<section class="pk-section" id="pk">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="kicker-row"><span class="rule"></span><span class="eyebrow">Pakistan projects</span></div>
+        <h2>Platinum Sales Partner for Pakistan's landmark developments</h2>
+      </div>
+      <p class="lead">From smart cities to signature towers in Lahore and Islamabad — the developments our clients trust us with the most.</p>
+    </div>
+
+    <div class="pk-feature-grid">
+      <div class="pk-feature">
+        <div class="pk-feature-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Capital Smart City Islamabad"></div>
+        <div class="pk-feature-body">
+          <span class="pk-partner">Platinum Partner</span>
+          <h3>Capital Smart City, Islamabad</h3>
+          <p>Pakistan's first smart city — Overseas Prime & West Blocks, villas, and commercial blocks with flexible instalment plans.</p>
+          <a href="#contact">Enquire about this project →</a>
+        </div>
+      </div>
+      <div class="pk-feature">
+        <div class="pk-feature-img"><img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=900&q=80" alt="Lahore Smart City"></div>
+        <div class="pk-feature-body">
+          <span class="pk-partner">Platinum Partner</span>
+          <h3>Lahore Smart City</h3>
+          <p>20,000+ Kanal on the Lahore Bypass — LDA-approved, residential and commercial plots designed for long-term appreciation.</p>
+          <a href="#contact">Enquire about this project →</a>
+        </div>
+      </div>
+      <div class="pk-feature">
+        <div class="pk-feature-img"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80" alt="Etihad Town Lahore"></div>
+        <div class="pk-feature-body">
+          <span class="pk-partner">Exclusive Sales Partner</span>
+          <h3>Etihad Town, Lahore</h3>
+          <p>Modern infrastructure and resort-style amenities — residential plots with up to 12% cash discount currently available.</p>
+          <a href="#contact">Enquire about this project →</a>
+        </div>
+      </div>
+      <div class="pk-feature">
+        <div class="pk-feature-img"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="101 Tower Lahore"></div>
+        <div class="pk-feature-body">
+          <span class="pk-partner">Signature Tower</span>
+          <h3>101 Tower, Lahore</h3>
+          <p>A landmark high-rise on Lahore's skyline offering branded residences and premium commercial floors.</p>
+          <a href="#contact">Enquire about this project →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pk-tile-head">
+      <h3>More developments we represent</h3>
+      <span>18 active projects across Lahore & Islamabad</span>
+    </div>
+    <div class="pk-tiles">
+      <div class="pk-tile"><span class="city">Islamabad</span><h5>Nova City Islamabad</h5></div>
+      <div class="pk-tile"><span class="city">Islamabad</span><h5>Park View City Islamabad</h5></div>
+      <div class="pk-tile"><span class="city">Islamabad</span><h5>Nestor Heights</h5></div>
+      <div class="pk-tile"><span class="city">Islamabad</span><h5>Graceland Housing</h5></div>
+      <div class="pk-tile"><span class="city">Lahore</span><h5>Park View City Lahore</h5></div>
+      <div class="pk-tile"><span class="city">Lahore</span><h5>Lake City Lahore</h5></div>
+      <div class="pk-tile"><span class="city">Lahore</span><h5>Defence Raya Lahore</h5></div>
+      <div class="pk-tile"><span class="city">Lahore</span><h5>Defence Raya Apartments</h5></div>
+      <div class="pk-tile"><span class="city">Lahore</span><h5>Icon Homes Lahore</h5></div>
+      <div class="pk-tile"><span class="city">Lahore</span><h5>Myfa Residency</h5></div>
+      <div class="pk-tile"><span class="city">Lahore</span><h5>Park House Apartments</h5></div>
+      <div class="pk-tile"><span class="city">Lahore</span><h5>Autograph Apartments</h5></div>
+      <div class="pk-tile"><span class="city">Lahore</span><h5>Lake View Commercials</h5></div>
+      <div class="pk-tile"><span class="city">Gujranwala</span><h5>DHA Gujranwala</h5></div>
+      <div class="pk-tile"><span class="city">Islamabad</span><h5>One Capital Residencies</h5></div>
+      <div class="pk-tile"><span class="city">Islamabad</span><h5>Capital Smart City Villas</h5></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-band" id="why">
+  <div class="wrap">
+    <div class="kicker-row"><span class="rule"></span><span class="eyebrow">Why Lion Group</span></div>
+    <div class="stats-grid" style="margin-top:24px;">
+      <div class="stat-item"><strong>17+ yrs</strong><span>Real estate & asset management experience</span></div>
+      <div class="stat-item"><strong>PKR 50B+</strong><span>In facilitated property transactions</span></div>
+      <div class="stat-item"><strong>18</strong><span>Active development partnerships</span></div>
+      <div class="stat-item"><strong>68K+</strong><span>Investors in our community</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section" id="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="kicker-row"><span class="rule"></span><span class="eyebrow">Client experiences</span></div>
+        <h2>Trusted by local and overseas investors</h2>
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p>"Lion Group handled my Etihad Town booking end-to-end while I was still in the UK — paperwork, payments, everything."</p>
+        <div class="testi-person">
+          <div class="testi-avatar">A</div>
+          <div><strong>Ahmed R.</strong><span>Overseas client, Manchester</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p>"What stood out was how organised the whole Capital Smart City process was. No runaround, clear timelines."</p>
+        <div class="testi-person">
+          <div class="testi-avatar">S</div>
+          <div><strong>Sana K.</strong><span>Investor, Lahore</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p>"They understand both markets — helped me compare a London flat against a Lahore Smart City plot honestly."</p>
+        <div class="testi-person">
+          <div class="testi-avatar">B</div>
+          <div><strong>Bilal H.</strong><span>Overseas client, Dubai</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="wrap">
+    <h2>Let's find the right property for you</h2>
+    <p>Speak with a Lion Group advisor about UK residences or our Pakistan developments — one call covers both markets.</p>
+    <div class="cta-buttons">
+      <a href="tel:+923111222977" class="btn btn-gold">Call +92 311 122 2977</a>
+      <a href="mailto:info@lionhdb.com" class="btn btn-line">Email info@lionhdb.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="logo-text" style="margin-bottom:14px;">LION <span>GROUP</span></div>
+        <p>Real estate & asset management across London, Dubai, and Lahore — Platinum & Strategic Sales Partner for Pakistan's leading developments since 2005.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/LionHDBProperties/">f</a>
+          <a href="#">in</a>
+          <a href="#">ig</a>
+          <a href="#">yt</a>
+        </div>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#uk">UK Portfolio</a></li>
+          <li><a href="#pk">Pakistan Projects</a></li>
+          <li><a href="#video">Portfolio Film</a></li>
+          <li><a href="#why">Why Lion Group</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Get in touch</h5>
+        <ul>
+          <li>113-B, Broadway, DHA Phase 8, Lahore</li>
+          <li>+92 311 122 2977</li>
+          <li>info@lionhdb.com</li>
+          <li>Mon–Sat, 9:00am – 9:00pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Lion Group / Lion HDB Properties. All rights reserved.</span>
+      <span>Design preview — content & imagery to be finalised with client assets.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/923111222977" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.62 1.44 5.13L2 22l5.13-1.55a9.87 9.87 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.1h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.04.92.93-2.96-.2-.31a8.2 8.2 0 1 1 6.8 3.67zm4.5-6.14c-.25-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.96-.14.16-.29.18-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.24-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.24-.41.08-.16.04-.3-.02-.43-.06-.12-.56-1.36-.77-1.86-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.42.06-.65.3-.22.24-.85.83-.85 2.03 0 1.2.87 2.36 1 2.52.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.46-.6 1.66-1.17.2-.58.2-1.08.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+</a>
+
+<script>
+  // video slideshow
+  const slides = document.querySelectorAll('.video-player .slide');
+  const progressBar = document.getElementById('progressBar');
+  const playIcon = document.getElementById('playIcon');
+  let idx = 0, playing = false, timer = null;
+
+  function nextSlide(){
+    slides[idx].classList.remove('active');
+    idx = (idx + 1) % slides.length;
+    slides[idx].classList.add('active');
+  }
+
+  function toggleVideo(){
+    playing = !playing;
+    if(playing){
+      playIcon.innerHTML = '<rect x="6" y="5" width="4" height="14" fill="#F6F3EC"/><rect x="14" y="5" width="4" height="14" fill="#F6F3EC"/>';
+      progressBar.classList.add('running');
+      timer = setInterval(nextSlide, 9000);
+    } else {
+      playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+      progressBar.classList.remove('running');
+      clearInterval(timer);
+    }
+  }
+
+  // mobile nav
+  document.addEventListener('click', function(e){
+    const nav = document.querySelector('nav.links');
+    if(!nav.contains(e.target) && !e.target.closest('.burger')){
+      nav.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
